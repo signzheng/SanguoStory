@@ -1,5 +1,5 @@
 {
-  "name": "Three Kingdoms Visuals",
-  "description": "An interactive gallery visualizing the 18 major storylines of the Romance of the Three Kingdoms using AI-generated imagery.",
+  "name": "三国演义视觉展",
+  "description": "一个互动式画廊，利用 AI 生成的图像可视化《三国演义》的 18 个主要故事情节。",
   "requestFramePermissions": []
 }

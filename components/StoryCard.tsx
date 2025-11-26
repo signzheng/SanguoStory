@@ -15,7 +15,7 @@ export const StoryCard: React.FC<StoryCardProps> = ({ story, onGenerate, isGloba
         {story.imageUrl ? (
           <img 
             src={story.imageUrl} 
-            alt={story.titleEnglish} 
+            alt={story.titleChinese} 
             className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
           />
         ) : (
@@ -24,12 +24,12 @@ export const StoryCard: React.FC<StoryCardProps> = ({ story, onGenerate, isGloba
              {story.isLoading ? (
                 <div className="flex flex-col items-center gap-3 z-10">
                   <div className="w-8 h-8 border-2 border-historic-gold border-t-transparent rounded-full animate-spin"></div>
-                  <span className="text-historic-gold text-sm animate-pulse">Summoning Visuals...</span>
+                  <span className="text-historic-gold text-sm animate-pulse">正在以此典故绘图...</span>
                 </div>
              ) : (
                 <div className="z-10 flex flex-col items-center">
                    <span className="text-stone-600 text-5xl mb-2 opacity-30 select-none">{story.id}</span>
-                   <p className="text-stone-500 text-sm mb-4 px-4">Image not generated yet</p>
+                   <p className="text-stone-500 text-sm mb-4 px-4">尚未生成图像</p>
                    {story.error && (
                      <p className="text-red-400 text-xs mb-3 max-w-[200px]">{story.error}</p>
                    )}
@@ -40,7 +40,7 @@ export const StoryCard: React.FC<StoryCardProps> = ({ story, onGenerate, isGloba
                       ${isGlobalLoading ? 'opacity-50 cursor-not-allowed' : 'hover:scale-105 active:scale-95'}
                     `}
                    >
-                     {story.error ? 'Retry' : 'Generate Visual'}
+                     {story.error ? '重试' : '生成图像'}
                    </button>
                 </div>
              )}
@@ -54,7 +54,7 @@ export const StoryCard: React.FC<StoryCardProps> = ({ story, onGenerate, isGloba
                     onClick={onGenerate}
                     disabled={isGlobalLoading}
                     className="text-white/80 hover:text-white bg-black/50 hover:bg-black/70 p-2 rounded-full backdrop-blur-sm transition-all"
-                    title="Regenerate"
+                    title="重新生成"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
@@ -69,14 +69,14 @@ export const StoryCard: React.FC<StoryCardProps> = ({ story, onGenerate, isGloba
         <div className="flex justify-between items-start mb-2">
             <div>
                 <h3 className="text-xl font-bold text-historic-gold font-serif leading-tight">{story.titleChinese}</h3>
-                <h4 className="text-sm font-medium text-stone-400 uppercase tracking-wide mt-1">{story.titleEnglish}</h4>
+                <h4 className="text-xs font-medium text-stone-500 uppercase tracking-wide mt-1">{story.titleEnglish}</h4>
             </div>
             <span className="text-stone-600 text-xs font-mono border border-stone-700 px-1.5 py-0.5 rounded">#{story.id}</span>
         </div>
         
         <div className="w-12 h-0.5 bg-stone-700 my-3"></div>
         
-        <p className="text-stone-300 text-sm leading-relaxed font-light">
+        <p className="text-stone-300 text-sm leading-relaxed font-light text-justify">
           {story.description}
         </p>
       </div>

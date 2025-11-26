@@ -22,7 +22,6 @@ export const generateImageForStory = async (prompt: string): Promise<string> => 
       config: {
         imageConfig: {
           aspectRatio: "16:9",
-          numberOfImages: 1,
         },
       },
     });
